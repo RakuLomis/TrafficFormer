@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Local environments
+.env
+.venv/
+venv/
+
+# Model checkpoints and generated outputs
+checkpoints/
+models/finetuned/
+outputs/
+generated_for_comparison/
+E:/Coding/TrafficData/generated_for_comparison/
+*.pt
+*.pth
+*.ckpt
+*.bin
+
+# Raw/generated traffic data
+*.pcap
+*.pcapng
+*.cap
+*.pcapngng

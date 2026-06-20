@@ -1,0 +1,39 @@
+{
+  "model_name": "TrafficFormer",
+  "datasets": [
+    "cstnet_tls_1.3",
+    "CipherSpectrum"
+  ],
+  "raw_root": "E:\\Coding\\TrafficData\\datasets_raw_add2",
+  "generated_root": "E:\\Coding\\TrafficData\\generated_for_comparison\\TrafficFormer",
+  "results_root": "results",
+  "checkpoints_root": "checkpoints",
+  "python_cmd": [
+    "conda",
+    "run",
+    "-n",
+    "Pytorch_env",
+    "python"
+  ],
+  "seed": 42,
+  "train_ratio": 0.8,
+  "val_ratio": 0.1,
+  "test_ratio": 0.1,
+  "vocab_path": "models/encryptd_vocab.txt",
+  "config_path": "models/bert/base_config.json",
+  "pretrained_model_path": null,
+  "seq_length": 320,
+  "payload_length": 64,
+  "payload_packets": 5,
+  "batch_size": 128,
+  "epochs_num": 4,
+  "earlystop": 4,
+  "learning_rate": 0.00006,
+  "embedding": "word_pos_seg",
+  "encoder": "transformer",
+  "mask": "fully_visible",
+  "latency_batch_size": 1,
+  "throughput_batch_size": 32,
+  "warmup_samples": 100,
+  "measured_samples": 1000
+}

@@ -278,6 +278,8 @@ def main():
                         help="Train model with logits.")
     parser.add_argument("--soft_alpha", type=float, default=0.5,
                         help="Weight of the soft targets loss.")
+    parser.add_argument("--force_cpu", action="store_true",
+                        help="Force CPU execution even when CUDA is available.")
     
     #MOE Model Options
     parser.add_argument("--is_moe", action="store_true", help="adopt moe layer.")
@@ -311,7 +313,7 @@ def main():
     # Load or initialize parameters.
     load_or_initialize_parameters(args, model)
 
-    args.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    args.device = torch.device("cpu" if args.force_cpu else ("cuda:0" if torch.cuda.is_available() else "cpu"))
     model = model.to(args.device)
 
     if args.train_path is None:
