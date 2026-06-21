@@ -25,7 +25,7 @@
   "seq_length": 320,
   "payload_length": 64,
   "payload_packets": 5,
-  "batch_size": 128,
+  "batch_size": 16,
   "epochs_num": 4,
   "earlystop": 4,
   "learning_rate": 0.00006,
