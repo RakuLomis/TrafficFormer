@@ -363,7 +363,10 @@ def main():
 
     for epoch in tqdm.tqdm(range(1, args.epochs_num + 1)):
         model.train()
-        for i, (src_batch, tgt_batch, seg_batch, soft_tgt_batch) in enumerate(batch_loader(batch_size, src, tgt, seg, soft_tgt)):
+        total_batches = instances_num // batch_size + int(instances_num > instances_num // batch_size * batch_size)
+        train_batches = batch_loader(batch_size, src, tgt, seg, soft_tgt)
+        train_batches = tqdm.tqdm(train_batches, total=total_batches, desc="Epoch {} batches".format(epoch), leave=False)
+        for i, (src_batch, tgt_batch, seg_batch, soft_tgt_batch) in enumerate(train_batches):
             loss = train_model(args, model, optimizer, scheduler, src_batch, tgt_batch, seg_batch, soft_tgt_batch)
             total_loss += loss.item()
             if (i + 1) % args.report_steps == 0:
