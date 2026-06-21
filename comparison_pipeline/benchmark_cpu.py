@@ -27,6 +27,8 @@ def make_batches(run_classifier, args, dataset, batch_size):
 
 
 def run_forward(args, batch):
+    import torch
+
     src_batch, tgt_batch, seg_batch, soft_tgt_batch = batch
     src_batch = src_batch.to(args.device)
     tgt_batch = tgt_batch.to(args.device)
