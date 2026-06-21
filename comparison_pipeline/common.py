@@ -218,7 +218,7 @@ def initialize_model(config, dataset, checkpoint=None, cpu_only=False, batch_siz
         set_cpu_only(config.get("cpu_threads"))
     run_classifier = import_run_classifier()
     from uer.utils.config import load_hyperparam
-    from uer.utils.constants import str2tokenizer
+    from uer.utils import str2tokenizer
 
     args = build_classifier_args(config, dataset, batch_size=batch_size, checkpoint=None)
     args = load_hyperparam(args)
